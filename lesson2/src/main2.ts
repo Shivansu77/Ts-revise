@@ -61,3 +61,54 @@ const greetGuitarist=(guitarist:Guitarist)=>{
 
 console.log(greetGuitarist(evh));
 console.log(greetGuitarist(jp));
+
+/*enum Grade{
+    U=1,
+    D,
+    C,
+    B,
+    A
+}*/
+
+//console.log(Grade.A);
+//console.log(Grade.U);
+
+
+const add = (a: number,b:number):number=>{
+    return a+b;
+}
+
+const logMsg = (msg:any):void=>{
+    console.log(msg);
+}
+logMsg('Hello dosto');
+
+type ONE = string;
+
+const myNameis: ONE = "hello john im nothing again personally to you but i just know i am better than you and we should on fight";
+let b = myNameis as ONE;
+console.log(b);
+
+const addOrConcat = (a:number,b:number,c:'add'|'concat'):number|string=>{
+    if(c==='add'){
+        return a+b;
+    }
+    return ''+a+b;
+}
+//assertions
+let mySum: number = addOrConcat(2,3,'add') as number;
+console.log(mySum);
+let myVal: string = addOrConcat(2,3,'concat') as string;
+console.log(myVal);
+
+//The Dom 
+const img = document.querySelector('img') as HTMLImageElement
+const myImg = document.getElementById("#img")
+
+//1st variation
+const year = document.getElementById("year") as HTMLSpanElement | null;
+const thisYear: string = new Date().getFullYear().toString();
+if (year) {
+    year.setAttribute("datetime", thisYear);
+    year.textContent = thisYear;
+}
